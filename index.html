@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Walla Walla Destination Guide | Travel Curated by Colby</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fefaf5;
+    --sand: #e5dbd0;
+    --steel: #4780a8;
+    --pale-blue: #d0dae5;
+    --deep-blue: #2d5a80;
+    --dark: #1a1a1a;
+    --mid-gray: #6b6b6b;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--cream);
+    color: var(--dark);
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--cream); border-bottom: 1px solid var(--sand);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 24px;
+  }
+  .topbar-logo {
+    font-family: 'Playfair Display', serif; font-size: 14px;
+    color: var(--steel); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+  }
+  .save-pdf-btn {
+    background: var(--steel); color: #fff; border: none;
+    padding: 8px 18px; font-family: 'Lato', sans-serif; font-size: 12px;
+    letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; border-radius: 2px;
+  }
+  .save-pdf-btn:hover { background: var(--deep-blue); }
+
+  .hero {
+    position: relative; height: 420px;
+    background: linear-gradient(135deg, #2d5a80 0%, #4780a8 50%, #6b9cbf 100%);
+    overflow: hidden; display: flex; align-items: flex-end;
+  }
+  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(20,40,60,0.82) 0%, rgba(20,40,60,0.2) 60%, transparent 100%);
+  }
+  .hero-content { position: relative; z-index: 2; padding: 40px 36px; color: #fff; }
+  .hero-eyebrow {
+    font-family: 'Lato', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.8; margin-bottom: 8px;
+  }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 600; line-height: 1.15; }
+
+  .tabs-wrapper {
+    background: var(--cream); border-bottom: 1px solid var(--sand);
+    position: sticky; top: 53px; z-index: 90;
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+  }
+  .tabs { display: flex; min-width: max-content; padding: 0 24px; }
+  .tab-btn {
+    font-family: 'Lato', sans-serif; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid-gray);
+    background: none; border: none; border-bottom: 3px solid transparent;
+    padding: 16px 20px 13px; cursor: pointer; white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .tab-btn:hover { color: var(--steel); }
+  .tab-btn.active { color: var(--steel); border-bottom-color: var(--steel); }
+
+  .panel {
+    display: none; max-width: 820px; margin: 0 auto; padding: 40px 24px 60px;
+  }
+  .panel.active { display: block; }
+
+  h2 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 600; color: var(--steel); margin-bottom: 16px; }
+  h3 { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 600; color: var(--dark); margin: 28px 0 10px; }
+  p { margin-bottom: 14px; color: var(--dark); }
+  p:last-child { margin-bottom: 0; }
+
+  .callout {
+    background: var(--pale-blue); border-left: 4px solid var(--steel);
+    padding: 20px 22px; margin: 24px 0; border-radius: 0 6px 6px 0;
+  }
+  .callout p { margin-bottom: 8px; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout strong {
+    font-weight: 700; color: var(--steel); font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 4px;
+  }
+
+  .divider { border: none; border-top: 1px solid var(--sand); margin: 32px 0; }
+
+  .cat-band {
+    background: var(--pale-blue); border-left: 4px solid var(--steel);
+    margin: 28px -24px 18px; padding: 10px 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .cat-band span {
+    font-family: 'Lato', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--deep-blue);
+  }
+
+  .facts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+  .fact-card {
+    background: #fff; border: 1px solid var(--sand);
+    border-top: 3px solid var(--steel); border-radius: 0 0 6px 6px; padding: 16px;
+  }
+  .fact-card .fact-num { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--steel); line-height: 1; margin-bottom: 4px; }
+  .fact-card .fact-label { font-size: 13px; color: var(--mid-gray); line-height: 1.4; }
+
+  .neighborhood { margin-bottom: 20px; }
+  .neighborhood h3 { margin-top: 0; }
+
+  .activity { margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--sand); }
+  .activity:last-child { border-bottom: none; }
+  .activity-name {
+    display: block; font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600;
+    color: var(--dark); text-decoration: none; margin-bottom: 4px; cursor: pointer; transition: color 0.2s;
+  }
+  .activity-name:hover { color: var(--steel); text-decoration: underline; text-underline-offset: 3px; }
+  .activity p { margin-bottom: 0; font-size: 15px; color: var(--mid-gray); }
+
+  .restaurant-card {
+    background: #fff; border-left: 4px solid var(--steel);
+    border-radius: 0 8px 8px 0; padding: 18px 20px; margin-bottom: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .restaurant-name {
+    display: block; font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600;
+    color: var(--dark); text-decoration: none; margin-bottom: 5px; transition: color 0.2s; cursor: pointer;
+  }
+  .restaurant-name:hover { color: var(--steel); text-decoration: underline; text-underline-offset: 3px; }
+  .restaurant-tag { font-size: 12px; color: var(--mid-gray); margin-bottom: 10px; }
+  .restaurant-tag span { margin-right: 8px; }
+  .restaurant-card p { font-size: 14px; margin-bottom: 6px; }
+  .restaurant-card p:last-child { margin-bottom: 0; }
+  .detail-label { font-weight: 700; color: var(--dark); font-size: 13px; }
+
+  .winery-card {
+    background: #fff; border-left: 4px solid var(--steel);
+    border-radius: 0 8px 8px 0; padding: 18px 20px; margin-bottom: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .winery-name {
+    display: block; font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600;
+    color: var(--dark); text-decoration: none; margin-bottom: 4px; cursor: pointer; transition: color 0.2s;
+  }
+  .winery-name:hover { color: var(--steel); text-decoration: underline; text-underline-offset: 3px; }
+  .winery-meta { font-size: 12px; color: var(--mid-gray); margin-bottom: 10px; }
+  .winery-card p { font-size: 14px; margin-bottom: 6px; }
+  .winery-card p:last-child { margin-bottom: 0; }
+
+  .flag-box {
+    background: #fff8e6; border-left: 3px solid #d4a017;
+    padding: 10px 14px; margin-top: 10px; font-size: 13px;
+    color: var(--dark); border-radius: 0 4px 4px 0;
+  }
+
+  .tier-label {
+    font-family: 'Lato', sans-serif; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid-gray); margin: 20px 0 10px;
+  }
+
+  .shop-card {
+    background: #fff; border-left: 4px solid var(--steel);
+    border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .shop-name {
+    display: block; font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600;
+    color: var(--dark); text-decoration: none; margin-bottom: 4px; cursor: pointer; transition: color 0.2s;
+  }
+  .shop-name:hover { color: var(--steel); text-decoration: underline; text-underline-offset: 3px; }
+  .shop-meta { font-size: 12px; color: var(--mid-gray); margin-bottom: 8px; }
+  .shop-card p { font-size: 14px; margin-bottom: 0; }
+
+  .practical-section { margin-bottom: 28px; }
+  .practical-label {
+    font-family: 'Lato', sans-serif; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--steel); margin-bottom: 10px; display: block;
+  }
+  .practical-section ul { list-style: none; padding: 0; }
+  .practical-section ul li {
+    padding: 5px 0; border-bottom: 1px solid var(--sand); font-size: 14px; color: var(--dark);
+  }
+  .practical-section ul li:last-child { border-bottom: none; }
+
+  .day-card { margin-bottom: 28px; }
+  .day-header {
+    background: var(--steel); color: #fff; font-family: 'Lato', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 10px 18px; border-radius: 6px 6px 0 0;
+  }
+  .day-title-band {
+    background: var(--pale-blue); padding: 10px 18px;
+    font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; color: var(--deep-blue);
+  }
+  .day-body {
+    background: #fff; border: 1px solid var(--sand); border-top: none;
+    border-radius: 0 0 6px 6px; padding: 16px 20px;
+  }
+  .day-body ul { list-style: none; padding: 0; }
+  .day-body ul li {
+    padding: 7px 0; border-bottom: 1px solid #f0ebe4; font-size: 14px;
+    color: var(--dark); display: flex; gap: 10px;
+  }
+  .day-body ul li:last-child { border-bottom: none; }
+  .time-tag {
+    font-size: 11px; font-weight: 700; color: var(--steel);
+    letter-spacing: 0.05em; min-width: 60px; flex-shrink: 0; padding-top: 2px;
+  }
+
+  footer {
+    background: var(--sand); text-align: center; padding: 20px;
+    font-family: 'Lato', sans-serif; font-size: 12px; color: var(--mid-gray); letter-spacing: 0.06em;
+  }
+  footer a { color: var(--steel); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media print {
+    .topbar, .tabs-wrapper { display: none !important; }
+    .panel { display: block !important; page-break-after: always; }
+    .panel:last-of-type { page-break-after: avoid; }
+    @page { margin: 0.65in; }
+    .cat-band { margin-left: 0; margin-right: 0; }
+  }
+
+  @media (max-width: 600px) {
+    body { font-size: 17px; }
+    .panel { padding: 28px 16px 48px; }
+    .cat-band { margin: 24px -16px 16px; padding: 10px 16px; }
+    .tab-btn { padding: 14px 14px 11px; font-size: 11px; }
+    .facts-grid { grid-template-columns: 1fr; }
+    .hero { height: 320px; }
+    .hero-content { padding: 28px 20px; }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html, body { background: #fefaf5 !important; color: #1a1a1a !important; }
+    .topbar { background: #fefaf5 !important; border-color: #e5dbd0 !important; }
+    .tabs-wrapper { background: #fefaf5 !important; }
+    .restaurant-card, .winery-card, .shop-card, .day-body, .fact-card { background: #fff !important; }
+    footer { background: #e5dbd0 !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <a class="topbar-logo" href="#">Travel Curated by Colby</a>
+  <button class="save-pdf-btn" onclick="window.print()">Save as PDF</button>
+</nav>
+
+<div class="hero">
+  <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=1200&q=80&fit=crop" alt="Walla Walla wine country" onerror="this.style.display='none'">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Destination Guide</div>
+    <h1 class="hero-title">Walla Walla, Washington</h1>
+  </div>
+</div>
+
+<div class="tabs-wrapper">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('overview', this)">Overview</button>
+    <button class="tab-btn" onclick="showTab('wineries', this)">Wineries</button>
+    <button class="tab-btn" onclick="showTab('dining', this)">Dining</button>
+    <button class="tab-btn" onclick="showTab('todo', this)">Things To Do</button>
+    <button class="tab-btn" onclick="showTab('practical', this)">Practical</button>
+    <button class="tab-btn" onclick="showTab('itinerary', this)">Itinerary</button>
+  </div>
+</div>
+
+<!-- ===================== OVERVIEW ===================== -->
+<div class="panel active" id="tab-overview">
+  <h2>Welcome to Walla Walla</h2>
+  <p>Walla Walla is a small, walkable wine city tucked into the southeastern corner of Washington — about 34,000 people, a college town with genuine small-town energy, and a food and wine scene that punches well above its weight. What makes it special isn't just the 130+ wineries; it's the fact that the winemakers are often pouring in their own tasting rooms, the restaurants are locally owned and chef-driven, and the whole thing feels like a community rather than a wine resort. There's no pretense here — just really good wine, great food, and people who are happy you came.</p>
+  <p>May is a sweet spot: warm enough for vineyard patios, green hills before the summer heat sets in, and a calendar full of spring energy without the summer crowds.</p>
+
+  <div class="callout">
+    <p><strong>Best Time to Visit</strong>May–June for mild temps, green vineyards, and fewer crowds. October for harvest energy and fall colors. Avoid August — it gets hot.</p>
+    <p><strong>Recommended Stay</strong>3–4 nights gives you time to explore downtown, hit the Southside and Eastside wineries, and actually relax.</p>
+    <p><strong>From Boise</strong>About 252 miles, 4 hours via I-84 West and US-12 North. Note: Walla Walla is on Pacific Time — 1 hour behind Boise.</p>
+  </div>
+
+  <hr class="divider">
+
+  <h2>The Valley at a Glance</h2>
+  <p>The name "Walla Walla" comes from a Sahaptin term most often translated as "many waters" — a nod to the rivers and creeks that crisscross the valley. It's an apt name. The region is lush and green in spring, defined by the Blue Mountains rising to the east. The wine region officially spans two states, with the wineries mostly in Washington but a meaningful share of the vineyard acreage across the Oregon border. The AVA was first designated in 1984 — one of the earliest in Washington — and the valley has been building its reputation ever since.</p>
+
+  <div class="facts-grid">
+    <div class="fact-card">
+      <div class="fact-num">130+</div>
+      <div class="fact-label">Wineries, most within a short drive of each other</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-num">95%</div>
+      <div class="fact-label">Of planted grapes are red — Cabernet Sauvignon (36%), Syrah (18%), and Merlot (16%) are the big three, and the three to seek out while you're here</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-num">57% WA / 43% OR</div>
+      <div class="fact-label">The AVA spans two states by planted vineyard acreage</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <h2>Neighborhoods &amp; Districts</h2>
+
+  <div class="neighborhood">
+    <h3>Downtown / Main Street</h3>
+    <p>The heart of it all. The Finch Hotel sits right on Main Street — steps from 40+ walkable tasting rooms, the best restaurants, boutique shops, and coffee. Flat sidewalks, easy stroller access, and a genuine small-city energy.</p>
+  </div>
+
+  <div class="neighborhood">
+    <h3>Southside</h3>
+    <p>Where the scenery opens up. Rolling hills, estate vineyards, and Blue Mountain views in every direction. Home to Caprio Cellars, Amavi, and Valdemar. About 10–15 minutes from downtown by car.</p>
+  </div>
+
+  <div class="neighborhood">
+    <h3>Eastside / Mill Creek</h3>
+    <p>A quieter, more scenic drive into the foothills at the base of the Blue Mountains. Home to Echolands, Walla Walla Vintners, and Abeja. About 15 minutes from downtown — Echolands in particular has the best views in the region.</p>
+  </div>
+
+  <div class="neighborhood">
+    <h3>Airport District</h3>
+    <p>A former WWII airfield converted into a casual cluster of tasting rooms — Dunham Cellars is the anchor. Artsy, low-key vibe with a lot of character. About 10 minutes northeast of downtown.</p>
+  </div>
+
+  <div class="neighborhood">
+    <h3>Westside</h3>
+    <p>Some of the valley's oldest wineries on the approach road into town — Woodward Canyon and L'Ecole are here. Also home to Foundry Vineyards, the art-forward tasting room that's a completely different experience from a traditional stop. About 10 minutes from downtown.</p>
+  </div>
+</div>
+
+<!-- ===================== WINERIES ===================== -->
+<div class="panel" id="tab-wineries">
+  <h2>Winery Guide</h2>
+  <p>These picks were chosen for a group traveling with babies — which means outdoor space, relaxed hospitality, seated experiences, and no need to stand at a bar while wrangling a stroller. All confirmed open for the May 14–17 window. Reservations strongly recommended for all, especially for a group of six.</p>
+
+  <div class="cat-band"><span>🏆 The Must-Do Stops</span></div>
+
+  <div class="winery-card">
+    <a class="winery-name" href="https://www.google.com/maps/search/?api=1&query=Echolands+Winery+Walla+Walla" target="_blank" rel="noopener noreferrer">Echolands Winery</a>
+    <div class="winery-meta">Eastside / Mill Creek · Open Wed–Mon 11am–5pm · $20/flight, waived with 2-bottle purchase</div>
+    <p>The showstopper. Opened April 2024 on a 341-acre estate in the Mill Creek foothills — the highest-elevation winery in Walla Walla — with a chic, modern tasting room framed by floor-to-ceiling windows and panoramic Blue Mountain views. The kind of place that stops conversation mid-sip. Kids explicitly welcome (they even have a zero-proof flight for non-drinkers). Book inside seating specifically — overflow guests have been seated outside with a reduced experience.</p>
+    <p><span class="detail-label">Vibe:</span> Architecture-forward, modern, spectacular views. The biggest "wow" in the valley right now.</p>
+    <p><span class="detail-label">Drive from hotel:</span> ~15 minutes</p>
+    <p><span class="detail-label">Book via:</span> Tock or call (509) 676-2109. Request indoor seating for 6 adults + babies when booking.</p>
+  </div>
+
+  <div class="winery-card">
+    <a class="winery-name" href="https://www.google.com/maps/search/?api=1&query=Caprio+Cellars+Walla+Walla" target="_blank" rel="noopener noreferrer">Caprio Cellars</a>
+    <div class="winery-meta">Southside · Open Wed–Sun 11am–5pm · No tasting fee — complimentary with paired small plates</div>
+    <p>One of the most distinctive tasting experiences in Walla Walla. Greeted with sparkling wine at the gate, then seated on a patio or inside with 360° valley views while a chef-prepared small plate arrives with each pour. Bordeaux-style blends, exceptional hospitality, and the energy of a dinner party rather than a tasting room. No tasting fee — the food is included. Four seatings daily: 11am, 12:30pm, 2pm, 3:30pm. By appointment only. Note: Caprio describes itself as a family-owned winery that welcomes families — call ahead to confirm they can accommodate the group's babies on the day of your visit.</p>
+    <p><span class="detail-label">Vibe:</span> Elevated, seated, food-forward. Everyone stays put, which is ideal with babies.</p>
+    <p><span class="detail-label">Drive from hotel:</span> ~12 minutes</p>
+    <p><span class="detail-label">Book via:</span> Tock or call (509) 412-3054.</p>
+  </div>
+
+  <div class="cat-band"><span>🍷 Great Supporting Stops</span></div>
+
+  <div class="winery-card">
+    <a class="winery-name" href="https://www.google.com/maps/search/?api=1&query=Amavi+Cellars+Walla+Walla" target="_blank" rel="noopener noreferrer">Amavi Cellars</a>
+    <div class="winery-meta">Southside · Open daily, walk-ins welcome as space allows · Reservations recommended for groups</div>
+    <p>Explicitly welcomes families, large groups, and dogs. The patio overlooks the Pepper Bridge Estate Vineyard with Blue Mountain views — spacious and easy to navigate with strollers. Known for estate Sémillon, Syrah, and a seasonal Cab Franc Rosé. Pairs well with Caprio for a full Southside Saturday.</p>
+    <p><span class="detail-label">Vibe:</span> Relaxed, beautiful, genuinely welcoming. Consistently top-rated.</p>
+    <p><span class="detail-label">Drive from hotel:</span> ~12 minutes</p>
+    <p><span class="detail-label">Book via:</span> amavicellars.com or walk in</p>
+  </div>
+
+  <div class="winery-card">
+    <a class="winery-name" href="https://www.google.com/maps/search/?api=1&query=Foundry+Vineyards+Walla+Walla" target="_blank" rel="noopener noreferrer">Foundry Vineyards</a>
+    <div class="winery-meta">Westside · Open Thu–Sat 11am–5pm, Sun noon–4pm · $25/flight, waived with 2-bottle purchase · Walk-ins welcome</div>
+    <p>Part winery, part art gallery, part design shop — set in a converted WWII-era foundry building with a contemporary sculpture garden and rotating quarterly exhibitions. Families explicitly welcome. Organic and natural wines including pet-nats under the Pét Project label. A completely different energy from a traditional winery stop. A short drive from The Finch Hotel.</p>
+    <p><span class="detail-label">Vibe:</span> Art-forward, creative, cool. The spot for anyone as interested in design as in what's in the glass.</p>
+    <p><span class="detail-label">Drive from hotel:</span> ~8 minutes</p>
+    <p><span class="detail-label">Book via:</span> Walk-ins welcome; foundryvineyards.com for info</p>
+  </div>
+
+  <div class="cat-band"><span>🚶 Downtown Tasting Rooms (Walking Distance)</span></div>
+
+  <div class="winery-card">
+    <a class="winery-name" href="https://www.google.com/maps/search/?api=1&query=L%27Ecole+Heritage+Wine+Bar+Marcus+Whitman+Hotel+Walla+Walla" target="_blank" rel="noopener noreferrer">L'École Nº 41 — Heritage Wine Bar</a>
+    <div class="winery-meta">Downtown · Marcus Whitman Hotel · Walk-ins welcome · Open daily · ~10 min walk from The Finch Hotel</div>
+    <p>One of Walla Walla's founding wineries (est. 1983) with a downtown Heritage Wine Bar location inside the Marcus Whitman Hotel — no driving required. Flights and glass pours from a winery widely considered the benchmark for Walla Walla Bordeaux-style reds and arguably America's best Semillon. Easy, relaxed, historic. A great Friday afternoon first stop right off the hotel's doorstep.</p>
+    <p><span class="detail-label">Vibe:</span> Approachable, historic. Walk in, sit down, taste some of the valley's most reliable wines.</p>
+  </div>
+
+  <div class="winery-card">
+    <a class="winery-name" href="https://www.google.com/maps/search/?api=1&query=The+Walls+Vineyards+Walla+Walla" target="_blank" rel="noopener noreferrer">The Walls Vineyards</a>
+    <div class="winery-meta">5 min from Downtown · Open daily · Walk-ins embraced · Lunch menu available all day · ~5 min drive from The Finch Hotel</div>
+    <p>Just outside the walkable core, but worth the short drive or ride. Modern tasting room with a diverse portfolio and a lunch menu served all day — making it the smartest combined lunch-and-taste stop on the trip. Reservations recommended but genuinely flexible. Good option for a relaxed midday break when nap schedules are unpredictable.</p>
+    <p><span class="detail-label">Vibe:</span> Relaxed, practical, well-regarded. Eat and taste in one stop.</p>
+  </div>
+
+  <div class="winery-card">
+    <a class="winery-name" href="https://www.google.com/maps/search/?api=1&query=Seven+Hills+Winery+Walla+Walla" target="_blank" rel="noopener noreferrer">Seven Hills Winery</a>
+    <div class="winery-meta">Downtown · Whitehouse-Crawford Building · Walk-ins welcome · ~5 min walk from The Finch Hotel</div>
+    <p>One of the founding wineries of the Walla Walla region, located in the beautifully restored 1904 Whitehouse-Crawford building — a National Register of Historic Places landmark. Strong Merlot and Cabernet Sauvignon-based wines that authentically reflect the valley's terroir. Historic setting, walkable, and a great complement to the L'Ecole stop for a downtown tasting afternoon.</p>
+    <p><span class="detail-label">Vibe:</span> Historic, architectural, easy going. A classic Walla Walla stop.</p>
+  </div>
+
+  <div class="flag-box" style="margin-bottom:20px;">
+    ⚠️ <strong>EVEREN Wines</strong> — Brand new Southside winery (opened Aug 2025) with arguably the best architecture and design in the valley. However, they do not accommodate minors on the property and cap groups at 4 people. Not an option for this trip — but a strong recommendation for a future couples trip without kids.
+  </div>
+</div>
+
+<!-- ===================== DINING ===================== -->
+<div class="panel" id="tab-dining">
+  <h2>Where to Eat</h2>
+  <p>Walla Walla's restaurant scene is impressive for a town this size — locally owned, chef-driven, and connected to the local farm community. The top dinner spots book out on weekends, so have reservations locked before leaving Boise. With babies, early seatings (5–5:30pm) are the move.</p>
+
+  <div class="cat-band"><span>☕ Breakfast &amp; Coffee</span></div>
+
+  <div class="restaurant-card">
+    <a class="restaurant-name" href="https://www.google.com/maps/search/?api=1&query=Carte+Coffee+Walla+Walla" target="_blank" rel="noopener noreferrer">Carte Coffee</a>
+    <div class="restaurant-tag"><span>Specialty Coffee · Downtown · $</span></div>
+    <p>The most serious coffee in Walla Walla. A multi-roaster operation that rotates through a new single-origin espresso every two weeks, with baristas who genuinely know what they're doing. Sleek, modern space at 8 N Colville St — easy walk from The Finch Hotel. Raved about by coffee nerds and casual drinkers alike.</p>
+    <p><span class="detail-label">Open:</span> Daily 7am–4/5pm</p>
+    <p><span class="detail-label">Order:</span> Whatever single-origin is on espresso, London Fog, cortado</p>
+  </div>
+
+  <div class="restaurant-card">
+    <a class="restaurant-name" href="https://www.google.com/maps/search/?api=1&query=Coffee+Perk+Walla+Walla" target="_blank" rel="noopener noreferrer">Coffee Perk</a>
+    <div class="restaurant-tag"><span>Coffee / Bakery · Downtown · $</span></div>
+    <p>A downtown Walla Walla institution since 1995 — one of the oldest espresso cafes in the city. Located right in the heart of downtown overlooking the First Avenue Plaza. Locally roasted beans, a pastry case stocked with baked goods daily, and a cozy atmosphere. Great if you want something more relaxed and neighborhood-y than Carte.</p>
+    <p><span class="detail-label">Open:</span> Daily, morning hours</p>
+    <p><span class="detail-label">Order:</span> Espresso drink, pastry of the day</p>
+  </div>
+
+  <div class="restaurant-card">
+    <a class="restaurant-name" href="https://www.google.com/maps/search/?api=1&query=Maple+Counter+Cafe+Walla+Walla" target="_blank" rel="noopener noreferrer">Maple Counter Cafe</a>
+    <div class="restaurant-tag"><span>American Breakfast · Downtown · $$</span></div>
+    <p>The consensus best breakfast in Walla Walla. Big portions, housemade batters, and pancakes people talk about long after they leave. Join the Google waitlist before leaving the hotel — Saturday mornings will have a line.</p>
+    <p><span class="detail-label">Open:</span> Daily 7am–3pm (breakfast all day; lunch weekdays only; breakfast only on weekends)</p>
+    <p><span class="detail-label">Order:</span> Buttermilk pancakes, eggs Benedict, biscuits and gravy</p>
+    <p><span class="detail-label">Reservations:</span> No — Google waitlist only</p>
+  </div>
+
+  <div class="cat-band"><span>🍽 Lunch &amp; Dinner</span></div>
+
+  <p class="tier-label">Casual</p>
+
+  <div class="restaurant-card">
+    <a class="restaurant-name" href="https://www.google.com/maps/search/?api=1&query=The+Walls+Vineyards+Walla+Walla" target="_blank" rel="noopener noreferrer">The Walls Vineyards — Lunch on-site</a>
+    <div class="restaurant-tag"><span>American / Wine Country · 5 min from Downtown · $–$$</span></div>
+    <p>The smartest lunch play for a group with babies: eat and taste at the same stop. Lunch menu served all day, every day in the tasting room — no extra reservation needed, no second car trip, and the babies can settle in while the adults taste.</p>
+    <p><span class="detail-label">Open:</span> Daily, lunch all day</p>
+    <p><span class="detail-label">Reservations:</span> Recommended for group; walk-ins embraced</p>
+  </div>
+
+  <div class="restaurant-card">
+    <a class="restaurant-name" href="https://www.google.com/maps/search/?api=1&query=Yamas+Greek+Eatery+Walla+Walla" target="_blank" rel="noopener noreferrer">Yamas Greek Eatery</a>
+    <div class="restaurant-tag"><span>Greek · Downtown · $$</span></div>
+    <p>Authentic Greek food made from family recipes right in the heart of downtown — one of the most approachable and consistently praised spots in Walla Walla. Great for lunch or an early dinner, especially with babies in tow: casual, quick service, generous portions, and an outdoor terrace. A nice break from wine country fare when the group wants something lighter and fresh.</p>
+    <p><span class="detail-label">Open:</span> Daily 11am–8pm</p>
+    <p><span class="detail-label">Order:</span> Lamb gyro, chicken souvlaki plate, spanakopita, housemade hummus and tzatziki, fried octopus</p>
+    <p><span class="detail-label">Reservations:</span> Available via Resy; walk-ins welcome</p>
+  </div>
+
+  <p class="tier-label">Mid-Range</p>
+
+  <div class="restaurant-card">
+    <a class="restaurant-name" href="https://www.google.com/maps/search/?api=1&query=Hattaway%27s+on+Alder+Walla+Walla" target="_blank" rel="noopener noreferrer">Hattaway's on Alder</a>
+    <div class="restaurant-tag"><span>Southern / Pacific Northwest · Downtown · $$</span></div>
+    <p>Southern cooking traditions — Gullah, low country, Daufuskie — remade with Pacific Northwest ingredients. House-cured meats, local seafood, excellent cocktails, and one of the most attentive service teams in town. Reserve early for a group of 6.</p>
+    <p><span class="detail-label">Open:</span> Daily from 4pm (earlier close Mon/Tue/Wed/Sun, 9pm Thu–Sat)</p>
+    <p><span class="detail-label">Order:</span> Wine barrel-smoked salmon, pulled pork shoulder, crab pasta, charcuterie</p>
+    <p><span class="detail-label">Reservations:</span> Required — Resy or hattawaysonalder.com</p>
+  </div>
+
+  <div class="restaurant-card">
+    <a class="restaurant-name" href="https://www.google.com/maps/search/?api=1&query=Passatempo+Taverna+Walla+Walla" target="_blank" rel="noopener noreferrer">Passatempo Taverna</a>
+    <div class="restaurant-tag"><span>Italian · Downtown · $$</span></div>
+    <p>House-made pasta, wood-fired pizza, and one of the best bar programs in town. The outdoor patio is serene and bamboo-lined — a great atmosphere for an early group dinner. Reserve well in advance for 6 — they book via Resy or by phone.</p>
+    <p><span class="detail-label">Open:</span> Thursday–Monday, 4pm–9:30pm (closed Tue/Wed)</p>
+    <p><span class="detail-label">Order:</span> Carbonara, rigatoni bolognese, margherita pizza, focaccia, housemade gelato</p>
+    <p><span class="detail-label">Reservations:</span> Required — Resy or (509) 876-8822</p>
+  </div>
+
+  <div class="restaurant-card">
+    <a class="restaurant-name" href="https://www.google.com/maps/search/?api=1&query=Saffron+Mediterranean+Kitchen+Walla+Walla" target="_blank" rel="noopener noreferrer">Saffron Mediterranean Kitchen</a>
+    <div class="restaurant-tag"><span>Mediterranean · Downtown · $$$</span></div>
+    <p>The most celebrated restaurant in Walla Walla, open since 2007 and still the most reliably excellent dinner in town. Turkish flatbreads, housemade pastas, fresh seafood, and an outstanding valley wine list. Saturday is the window for this group — book early.</p>
+    <p><span class="detail-label">Open:</span> Tuesday–Saturday only (closed Sun/Mon). Friday opens at 2pm, Tue–Thu 4:30pm.</p>
+    <p><span class="detail-label">Order:</span> Gözleme flatbread, braised beef cheek, pasta, anything the server recommends</p>
+    <p><span class="detail-label">Reservations:</span> Required — Tock or (509) 525-2112</p>
+  </div>
+
+  <hr class="divider">
+  <h3>Sweet Stops</h3>
+
+  <div class="restaurant-card">
+    <a class="restaurant-name" href="https://www.google.com/maps/search/?api=1&query=Pine+Cone+Creamery+Walla+Walla" target="_blank" rel="noopener noreferrer">Pine Cone Creamery</a>
+    <div class="restaurant-tag"><span>Ice Cream · Downtown · $</span></div>
+    <p>Small-batch, handcrafted ice cream from the family behind Maple Counter. 18 rotating flavors including vegan options. A short walk from The Finch Hotel — the natural end to any afternoon or evening out.</p>
+    <p><span class="detail-label">Open:</span> Daily noon–9pm (until 10pm Fri/Sat)</p>
+    <p><span class="detail-label">Order:</span> Honey lavender, whatever the seasonal special is</p>
+  </div>
+</div>
+
+<!-- ===================== THINGS TO DO ===================== -->
+<div class="panel" id="tab-todo">
+  <h2>Things To Do</h2>
+  <p>Beyond the wineries, Walla Walla has just enough to fill the non-tasting hours — especially for a group with babies who need flat, stroller-friendly ground and regular nap windows.</p>
+
+  <div class="cat-band"><span>🌿 Nature &amp; Outdoor</span></div>
+
+  <div class="activity">
+    <a class="activity-name" href="https://www.google.com/maps/search/?api=1&query=Pioneer+Park+Walla+Walla" target="_blank" rel="noopener noreferrer">Pioneer Park</a>
+    <p>Walla Walla's oldest park (est. 1902) — 58 acres with 1.4 miles of paved, ADA-accessible paths, a duck pond, playground, rose garden, and a free aviary with peacocks and exotic birds. Completely flat, fully stroller-friendly, and one of the genuinely great small-city parks in the Pacific Northwest. Free, open 5am–11pm daily. About a 10-minute drive from The Finch Hotel, or a pleasant 20-minute stroller walk. Best for a morning stroll on Saturday or Sunday before heading out for the day.</p>
+  </div>
+
+  <div class="activity">
+    <a class="activity-name" href="https://www.google.com/maps/search/?api=1&query=Whitman+College+Walla+Walla" target="_blank" rel="noopener noreferrer">Whitman College Campus Walk</a>
+    <p>A 10-minute walk from The Finch Hotel through a beautiful, shaded college campus. The self-guided sculpture walk features 21 works, many created by Whitman alumni. Flat campus paths, totally stroller-accessible, and easy to cut short. Great Sunday morning option before checkout. Free, always open.</p>
+  </div>
+
+  <div class="cat-band"><span>🛍 Shopping</span></div>
+
+  <div class="shop-card">
+    <a class="shop-name" href="https://www.google.com/maps/search/?api=1&query=Downtown+Walla+Walla+Farmers+Market" target="_blank" rel="noopener noreferrer">Downtown Farmers Market</a>
+    <div class="shop-meta">4th &amp; Main · Saturdays 9am–1pm (May through October) · ~12 min walk from The Finch Hotel</div>
+    <p>Running every Saturday through the season, this market brings local produce, artisan goods, and food vendors to the heart of downtown. A great Saturday morning start before heading to wineries — grab snacks, local honey, or flowers. Stroller-friendly and very manageable in size.</p>
+  </div>
+
+  <div class="shop-card">
+    <a class="shop-name" href="https://www.google.com/maps/search/?api=1&query=Liz+Kay+Clothing+Walla+Walla" target="_blank" rel="noopener noreferrer">Liz + Kay Clothing Co.</a>
+    <div class="shop-meta">213 E Alder St · Downtown · Open daily (Mon/Sun until 3pm, Tue–Sat until 6pm)</div>
+    <p>A locally owned women's boutique founded by cousins Brooklynn and Lindsee. Curated, affordable, accessible style with new arrivals weekly and a selection of jewelry from local Walla Walla makers. A short walk from The Finch Hotel.</p>
+  </div>
+
+  <div class="shop-card">
+    <a class="shop-name" href="https://www.google.com/maps/search/?api=1&query=Sweetwater+Paper+Home+Walla+Walla" target="_blank" rel="noopener noreferrer">Sweetwater Paper &amp; Home</a>
+    <div class="shop-meta">101 E Alder St · Downtown · Open Mon–Sat 10am–5pm (closed Sunday)</div>
+    <p>A highly-loved gift shop that's been a downtown staple for years. Cards, stationery, home goods, handcrafted jewelry, candles, wine accessories, and Walla Walla-themed souvenirs. The kind of store where you go in for one thing and leave with five. Great for picking up something for the people back home or treating yourself mid-trip.</p>
+  </div>
+
+  <div class="shop-card">
+    <a class="shop-name" href="https://www.google.com/maps/search/?api=1&query=Walla+Walla+Clothing+Company" target="_blank" rel="noopener noreferrer">Walla Walla Clothing Company</a>
+    <div class="shop-meta">Downtown · Open daily</div>
+    <p>A well-established downtown boutique carrying quality women's and men's clothing — brands like Eileen Fisher, AG Jeans, Mother Denim, Vince, and Free People. More investment-piece shopping than impulse buying, with a stylish edit and experienced staff. A good stop if you want something you'll actually wear long after the trip.</p>
+  </div>
+
+  <div class="shop-card">
+    <a class="shop-name" href="https://www.google.com/maps/search/?api=1&query=Inland+Octopus+Toy+Store+Walla+Walla" target="_blank" rel="noopener noreferrer">Inland Octopus</a>
+    <div class="shop-meta">Downtown</div>
+    <p>Walla Walla's beloved independent toy store, carrying an eclectic mix of toys, gifts, and games for all ages. Great for picking up something small for the babies or for kids back home. A fun browse even if you don't buy anything.</p>
+  </div>
+
+
+</div>
+
+<!-- ===================== PRACTICAL ===================== -->
+<div class="panel" id="tab-practical">
+  <h2>Practical Info</h2>
+
+  <div class="practical-section">
+    <span class="practical-label">Getting Here &amp; Around</span>
+    <ul>
+      <li>Boise → Walla Walla: ~252 miles, about 4 hours via I-84 West and US-12 North</li>
+      <li>Walla Walla is on Pacific Time — 1 hour behind Boise. Factor into your Sunday drive-home window</li>
+      <li>A car is required for Southside and Eastside wineries. Downtown is fully walkable from The Finch Hotel</li>
+      <li>No reliable rideshare outside downtown — own vehicles are the way to go</li>
+      <li>Cell signal can drop outside downtown — download Maps and winery addresses before leaving the hotel</li>
+    </ul>
+  </div>
+
+  <div class="practical-section">
+    <span class="practical-label">The Finch Hotel — Baby Flag</span>
+    <ul>
+      <li>⚠️ At least one booking platform notes cribs/infant beds are NOT available — confirm directly before arrival</li>
+      <li>Call (509) 956-4994 or text the front desk (they offer a text check-in system) before the trip</li>
+      <li>If they can't provide cribs, plan to bring pack-n-plays or arrange a local rental</li>
+    </ul>
+  </div>
+
+  <div class="practical-section">
+    <span class="practical-label">Winery Booking Tips</span>
+    <ul>
+      <li>Echolands, Caprio: book via Tock — and specifically request indoor seating for Echolands</li>
+      <li>Hattaway's, Passatempo: book via Resy before leaving Boise — these fill up fast on weekends</li>
+      <li>Saffron: closed Sunday and Monday — Saturday is the only window if you want to go</li>
+      <li>Maple Counter: no reservations — join the Google waitlist from the hotel before walking over</li>
+      <li>Call Caprio ahead of time to confirm they can accommodate babies the day of your visit</li>
+      <li>Tasting fees typically $20–35/person — most waived with a 2-bottle purchase. Caprio has no fee.</li>
+    </ul>
+  </div>
+
+  <div class="practical-section">
+    <span class="practical-label">May Weather</span>
+    <ul>
+      <li>Average highs 66–70°F, lows around 45°F — mornings and evenings are cool, bring layers for the babies</li>
+      <li>About 27% daily chance of rain — most winery patios have covered areas, pack a light jacket</li>
+    </ul>
+  </div>
+
+  <div class="practical-section">
+    <span class="practical-label">Helpful Apps</span>
+    <ul>
+      <li>Tock — reservations for Echolands, Caprio, Saffron, and others</li>
+      <li>Resy — Hattaway's and Passatempo</li>
+      <li>Walla Walla Valley Wine app — filterable winery guide by district, varietal, and hours</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===================== ITINERARY ===================== -->
+<div class="panel" id="tab-itinerary">
+  <h2>Example Itinerary</h2>
+  <p>Built for three couples each with a baby under one — easy rhythm, short drives, and early dinners. Adjust to your babies' actual schedules.</p>
+
+  <div class="day-card">
+    <div class="day-header">Thursday, May 14 — Drive Day</div>
+    <div class="day-title-band">Boise → Walla Walla</div>
+    <div class="day-body">
+      <ul>
+        <li><span class="time-tag">Afternoon</span>Leave Boise after 5pm Boise time (= 4pm Walla Walla time). Pack snacks and bottles — the drive is about 4 hours with no major food stops needed</li>
+        <li><span class="time-tag">~9–10pm PT</span>Arrive at The Finch Hotel, check in, unpack. The courtyard fire pit is a great landing spot — grab a bottle you brought and decompress</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header">Friday, May 15 — Downtown Day</div>
+    <div class="day-title-band">Midday start · Downtown tasting rooms on foot · Early dinner</div>
+    <div class="day-body">
+      <ul>
+        <li><span class="time-tag">Morning</span>Sleep in. No agenda until babies are fed, rested, and everyone's caffeinated from the lobby or a walk to Carte Coffee</li>
+        <li><span class="time-tag">Noon–1pm</span>Lunch at Yamas Greek Eatery — downtown, open daily until 8pm, casual and quick with outdoor seating. Great for a group with babies</li>
+        <li><span class="time-tag">1:30pm</span>Drive to Foundry Vineyards (~8 min) — art gallery, sculpture garden, organic wines, and pet-nats. Families welcome. A creative first winery stop with a completely different energy from a traditional tasting room</li>
+        <li><span class="time-tag">3–3:30pm</span>Walk to L'Ecole Heritage Wine Bar at the Marcus Whitman Hotel (~10 min on foot). Walk-ins welcome. One of the valley's founding wineries poured in a beautiful hotel bar setting</li>
+        <li><span class="time-tag">5pm</span>Early dinner: Hattaway's on Alder — book the 5 or 5:30pm reservation. Southern hospitality, great cocktails, genuinely excellent food</li>
+        <li><span class="time-tag">After dinner</span>Walk to Pine Cone Creamery — open until 9/10pm. Easy wind-down before bed</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header">Saturday, May 16 — Winery Day</div>
+    <div class="day-title-band">Coffee · Farmers Market · Echolands · Optional winery · Early dinner</div>
+    <div class="day-body">
+      <ul>
+        <li><span class="time-tag">8–9am</span>Grab coffee at Carte Coffee or Coffee Perk — both a short walk from the hotel</li>
+        <li><span class="time-tag">9am</span>Farmers Market at 4th &amp; Main (~12 min walk from hotel, runs 9am–1pm). Browse local produce, artisan goods, flowers, and snacks before the day kicks off</li>
+        <li><span class="time-tag">11am</span>Drive to Echolands Winery (~15 min). Book the 11am seating and request indoor seating specifically — floor-to-ceiling windows, panoramic Blue Mountain views, and the most visually dramatic tasting room in the valley. Kids welcome; locally sourced snacks available for purchase. Plan for about 90 minutes</li>
+        <li><span class="time-tag">1pm</span>Optional: Walla Walla Vintners (~10 min from Echolands, on the way back toward town). Scenic Eastside estate with a shaded patio and Blue Mountain views — walk-ins welcome as space allows, no reservation needed. A relaxed 45-minute stop if the group has energy; skip it if babies need a break</li>
+        <li><span class="time-tag">5pm</span>Early dinner: Passatempo Taverna — book via Resy, request the patio. House-made pasta, wood-fired pizza, great bar program. One of the most beloved spots in Walla Walla</li>
+        <li><span class="time-tag">After dinner</span>Pine Cone Creamery if you didn't make it Friday night — open until 9/10pm and just a short walk from the hotel</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header">Sunday, May 17 — Easy Morning + Drive Home</div>
+    <div class="day-title-band">Morning walk · Breakfast · Optional Amavi · Head home</div>
+    <div class="day-body">
+      <ul>
+        <li><span class="time-tag">8–9am</span>Pioneer Park or Whitman College campus walk — both flat, stroller-friendly, and easy for an early morning. Pioneer Park (~10 min drive) has the aviary and duck pond; Whitman College (~10 min walk) has the shaded sculpture walk</li>
+        <li><span class="time-tag">9–10am</span>Breakfast at Maple Counter Cafe — join the Google waitlist from your phone before leaving the hotel. Open until 3pm on Sundays</li>
+        <li><span class="time-tag">11am</span>Check out of The Finch Hotel, load cars</li>
+        <li><span class="time-tag">11:15am</span>Optional: Amavi Cellars (~12 min, Southside — genuinely on the way to I-84, not a detour). Open daily 11am–5pm, walk-ins welcome, families explicitly confirmed. A relaxed 75-minute stop with sweeping vineyard and Blue Mountain views. Decide day-of based on how the babies are doing — no reservation needed</li>
+        <li><span class="time-tag">1pm PT</span>Hit the road — ~4 hours to Boise, arriving around 6pm Boise time (accounting for the 1-hour time zone change)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>Book Before You Leave Boise</strong>Echolands fills up — reserve via Tock as soon as the date is confirmed and request indoor seating. Hattaway's and Passatempo are the two dinner reservations to lock in first. Maple Counter is walk-in only — join the Google waitlist from the hotel before heading over Sunday morning.</p>
+  </div>
+</div>
+
+<footer>
+  <a href="https://travelcuratedbycolby.com" target="_blank" rel="noopener noreferrer">travelcuratedbycolby.com</a>
+</footer>
+
+<script>
+  function showTab(tab, btn) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
